@@ -16,6 +16,8 @@ cd weather-app-django
 
 Set Up a Virtual Environment
 
+cd into the weather_app_django folder
+
 python3 -m venv .venv
 source .venv/bin/activate
 
