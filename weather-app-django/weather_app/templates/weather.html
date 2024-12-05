@@ -23,7 +23,7 @@
             {% csrf_token %}
             <label for="city">Where do you live?</label>
             <div>
-                <input type="text" name="city" id="city" placeholder="Enter your city...">
+                <input type="text" name="city" id="city" placeholder="Enter your city..." required>
                 <button type="submit">Find</button>
             </div>
         </form>
@@ -66,8 +66,8 @@
                     {% csrf_token %}
                     <button type="submit">Remove</button>
                 </form>
+                <!-- View Weather Button: Added link to weather page for each favorite -->
                 <a href="{% url 'weather' %}?city={{ favorite.city }}" class="view-weather">View Weather</a>
-
             </li>
             {% endfor %}
         </ul>

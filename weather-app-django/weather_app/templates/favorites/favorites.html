@@ -1,23 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="favorites-header">
-    <a href="{% url 'home' %}" class="home-button">Home</a> <!-- "Home" button -->
-    <span class="username">Welcome, {{ user.username }}!</span> <!-- Logged in user's name -->
+<div class="favorites-container">
+    <!-- Header Section -->
+    <div class="favorites-header">
+        <a href="{% url 'home' %}" class="home-button">Home</a> <!-- "Home" button -->
+        <span class="username">Welcome, {{ user.username }}!</span> <!-- Logged in user's name -->
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="favorites-content">
+        <h2>Your Favorite Locations</h2>
+
+        <!-- Favorite Locations List -->
+        <ul class="favorites-list">
+            {% for item in favorite_weather_data %}
+            <li class="favorite-item">
+                <span class="favorite-city">{{ item.favorite.city }}</span>
+                <span class="favorite-weather">{{ item.weather.description.capitalize() }} - {{ item.weather.temperature }}°C</span>
+                <a href="{% url 'remove_favorite_location' item.favorite.pk %}" class="remove-favorite">Remove</a>
+            </li>
+            {% empty %}
+            <p class="no-favorites">No favorite locations added yet.</p>
+            {% endfor %}
+        </ul>
+
+        <!-- Add Favorite Location Link -->
+        <div class="add-favorite-link">
+            <a href="{% url 'add_favorite_location' %}" class="add-favorite-button">Add a Favorite Location</a>
+        </div>
+    </div>
 </div>
 
-<h2>Your Favorite Locations</h2>
-
-<ul>
-    {% for favorite in favorites %}
-    <li>
-        {{ favorite.city }}
-        <a href="{% url 'remove_favorite_location' favorite.pk %}">Remove</a>
-    </li>
-    {% empty %}
-    <p>No favorite locations added yet.</p>
-    {% endfor %}
-</ul>
-
-<a href="{% url 'add_favorite_location' %}">Add a Favorite Location</a>
 {% endblock %}

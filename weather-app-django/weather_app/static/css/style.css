@@ -176,3 +176,95 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.favorites-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.favorites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.home-button {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.favorites-content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.favorites-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.favorite-item {
+    background-color: #ffffff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-city {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.remove-favorite {
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.remove-favorite:hover {
+    text-decoration: underline;
+}
+
+.no-favorites {
+    font-style: italic;
+    color: #888;
+}
+
+.add-favorite-link {
+    margin-top: 20px;
+}
+
+.add-favorite-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.add-favorite-button:hover {
+    background-color: #218838;
+}
+
