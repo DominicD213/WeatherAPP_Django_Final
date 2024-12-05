@@ -1,41 +1,53 @@
-# IMPORTANT
-[Current weather data](https://openweathermap.org/current)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAPP Django Setup</title>
+</head>
+<body>
+    <h1>WeatherAPP_Django_Final Setup</h1>
 
-# Clone project
-```bash
+    <h2>Clone the Project</h2>
+    <pre>
+        <code>
 git init
 git clone https://github.com/DominicD213/WeatherAPP_Django_Final.git
 cd weather-app-django
-```
+        </code>
+    </pre>
 
-## Install pipenv
-```bash
-pip3 install pipenv
-```
+    <h2>Set Up a Virtual Environment</h2>
+    <pre>
+        <code>
+python3 -m venv .venv
+source .venv/bin/activate
+        </code>
+    </pre>
 
-## Activate virtual environment
-```bash
-pipenv --python 3.10
-pipenv shell
-```
+    <h2>Install Required Packages</h2>
+    <pre>
+        <code>
+pip install django
+pip install python-dotenv
+pip install requests
+        </code>
+    </pre>
 
-## Install Django & frameworks
-```bash
-# Django
-pipenv install django
-pip3 install python-dotenv
-pip3 install requests
-```
-
-# Run server
-```bash
+    <h2>Run the Django Server</h2>
+    <pre>
+        <code>
 python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py runserver
-```
+        </code>
+    </pre>
 
-## Deactivate virtual environment
-```bash
-exit
-```
-# WeatherAPP_Django_Final
+    <h2>Deactivate the Virtual Environment</h2>
+    <pre>
+        <code>
+deactivate
+        </code>
+    </pre>
+</body>
+</html>
