@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <!-- Header Section -->
+    <section class="header">
+        <h1>Weather App</h1>
+        <hr>
+        
+        <div class="auth-links">
+            {% if not user.is_authenticated %}
+            <p>
+                <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Sign Up</a>
+            </p>
+            {% else %}
+            <p>Welcome, {{ user.username }}! | <a href="{% url 'logout' %}">Logout</a></p>
+            {% endif %}
+        </div>
+
+        <!-- Weather Search Form -->
+        <form action="" method="POST" class="search-form">
+            {% csrf_token %}
+            <label for="city">Where do you live?</label>
+            <div>
+                <input type="text" name="city" id="city" placeholder="Enter your city...">
+                <button type="submit">Find</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Current Weather Section -->
+    {% if current_weather %}
+    <section class="current_weather">
+        <h2>What's the weather like in <span class="capitalize">{{ current_weather.city }}</span>?</h2>
+        <div class="weather_info">
+            <p><strong>{{ current_weather.date }}</strong></p>
+            <div class="weather-details">
+                <img src="https://openweathermap.org/img/wn/{{ current_weather.icon }}.png" alt="Weather Icon">
+                <p>{{ current_weather.temperature }}&deg;C - {{ current_weather.humidity }}%</p>
+            </div>
+            <p>{{ current_weather.description|title }}</p>
+            <p>Min/Max Temp: {{ current_weather.min_temp }}&deg;C / {{ current_weather.max_temp }}&deg;C</p>
+        </div>
+
+        <!-- Add to Favorites Button -->
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'add_favorite_location' %}" class="favorite-form">
+            {% csrf_token %}
+            <input type="hidden" name="city" value="{{ current_weather.city }}">
+            <button type="submit">Add to Favorites</button>
+        </form>
+        {% endif %}
+    </section>
+    {% endif %}
+
+    <!-- Favorite Locations Section -->
+    <section class="favorites">
+        <h2>Your Favorite Locations</h2>
+        {% if favorites %}
+        <ul class="favorite-list">
+            {% for favorite in favorites %}
+            <li>
+                <strong>{{ favorite.city }}</strong>
+                <form method="POST" action="{% url 'remove_favorite_location' favorite.id %}" class="remove-favorite-form">
+                    {% csrf_token %}
+                    <button type="submit">Remove</button>
+                </form>
+                <a href="{% url 'weather' %}?city={{ favorite.city }}" class="view-weather">View Weather</a>
+
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>You haven't added any favorite locations yet.</p>
+        {% endif %}
+    </section>
+
+    <!-- Previous Queries Section -->
+    <section class="previous_queries">
+        <h2>Your Previous Queries</h2>
+        {% if user.is_authenticated %}
+        <ul class="query-list">
+            {% for query in previous_queries %}
+            <li>
+                <strong>{{ query.city }} ({{ query.date|date:"M d, Y, H:i" }})</strong><br>
+                Temperature: {{ query.temperature }}&deg;C | Humidity: {{ query.humidity }}%
+            </li>
+            {% empty %}
+            <li>You haven't made any queries yet.</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>You must be logged in to see your previous queries.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

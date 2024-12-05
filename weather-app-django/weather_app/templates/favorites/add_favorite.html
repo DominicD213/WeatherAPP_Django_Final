@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Favorite Locations</h2>
+
+<ul>
+    {% for favorite in favorites %}
+    <li>
+        {{ favorite.city }}
+        <a href="{% url 'remove_favorite_location' favorite.pk %}">Remove</a>
+    </li>
+    {% empty %}
+    <p>No favorite locations added yet.</p>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'add_favorite_location' %}">Add a Favorite Location</a>
+{% endblock %}

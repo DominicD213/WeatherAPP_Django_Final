@@ -1,0 +1,178 @@
+/* Reset styles for consistent appearance across browsers */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    background-color: #3a7ca5;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.auth-links {
+    margin-bottom: 20px;
+}
+
+.auth-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Weather Search Form */
+.search-form {
+    margin-top: 20px;
+}
+
+.search-form label {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.search-form div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form input {
+    padding: 10px;
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.search-form button {
+    padding: 10px;
+    background-color: #3a7ca5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.search-form button:hover {
+    background-color: #2a628b;
+}
+
+/* Current Weather Section */
+.current_weather {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.current_weather h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.weather_info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.weather-info img {
+    width: 100px;
+}
+
+.favorite-form button {
+    background-color: #3a7ca5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.favorite-form button:hover {
+    background-color: #2a628b;
+}
+
+/* Favorite Locations Section */
+.favorites {
+    margin-top: 50px;
+}
+
+.favorite-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.favorite-list li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favorite-list .view-weather {
+    text-decoration: none;
+    color: #3a7ca5;
+}
+
+.favorite-list .view-weather:hover {
+    text-decoration: underline;
+}
+
+.remove-favorite-form button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-favorite-form button:hover {
+    background-color: #c9302c;
+}
+
+/* Previous Queries Section */
+.previous_queries {
+    margin-top: 50px;
+}
+
+.query-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.query-list li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
