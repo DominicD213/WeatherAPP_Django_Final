@@ -4,7 +4,7 @@
 # Clone project
 ```bash
 git init
-git clone 
+git clone https://github.com/DominicD213/WeatherAPP_Django_Final.git
 cd weather-app-django
 ```
 
